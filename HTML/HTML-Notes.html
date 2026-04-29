@@ -1,0 +1,160 @@
+<!--
+========================================================================================================================================================================
+                                                                    HTML5 COMPLETE NOTES - SEMANTIC, STRUCTURE, AND FORMS
+========================================================================================================================================================================
+    
+/*
+HTML (HyperText Markup Language) is the standard markup language for creating web pages.
+It describes the structure of a web page semantically and originally included cues for the appearance of the document.
+
+Key Concepts:
+- Elements & Tags: <tagname>Content</tagname>
+- Attributes: Provide additional information about elements (e.g., class, id, src, href).
+- Nesting: Elements can be placed inside other elements.
+- Semantic HTML: Using tags that clearly describe their meaning in a human- and machine-readable way.
+*/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+    --------------------METADATA & HEAD-----------------------
+    The <head> contains machine-readable information (metadata) about the document.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive HTML5 notes for Full Stack Web Development">
+    <title>HTML5 Complete Notes</title>
+
+    <!-- External CSS/JS Links -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 
+    --------------------SEMANTIC STRUCTURE-----------------------
+    Semantic HTML improves SEO, accessibility, and code readability.
+    -->
+    <header>
+        <h1>My Web Dev Notes</h1>
+        <nav>
+            <ul>
+                <li><a href="#basics">Basics</a></li>
+                <li><a href="#semantic">Semantic</a></li>
+                <li><a href="#forms">Forms</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="basics">
+            <h2>1. HTML Basics</h2>
+            <p>HTML uses <strong>tags</strong> to define elements.</p>
+            
+            <!-- Links & Images -->
+            <a href="https://google.com" target="_blank">Visit Google</a>
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            
+            <!-- Lists -->
+            <h3>Lists</h3>
+            <ul>
+                <li>Unordered Item 1</li>
+                <li>Unordered Item 2</li>
+            </ul>
+            <ol>
+                <li>Ordered Item 1</li>
+                <li>Ordered Item 2</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="semantic">
+            <h2>2. Semantic Elements</h2>
+            <article>
+                <h3>Article Title</h3>
+                <p>This is an independent, self-contained piece of content.</p>
+            </article>
+            
+            <aside>
+                <p>This content is indirectly related to the main content (Sidebar).</p>
+            </aside>
+        </section>
+
+        <hr>
+
+        <section id="forms">
+            <h2>3. Forms and Inputs</h2>
+            <!-- 
+            Forms are used to collect user input.
+            Attributes: action (where to send data), method (GET/POST)
+            -->
+            <form action="/submit" method="POST">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter name" required>
+                </div>
+
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+
+                <div>
+                    <p>Role:</p>
+                    <input type="radio" id="admin" name="role" value="admin">
+                    <label for="admin">Admin</label>
+                    <input type="radio" id="user" name="role" value="user">
+                    <label for="user">User</label>
+                </div>
+
+                <div>
+                    <label for="country">Country:</label>
+                    <select name="country" id="country">
+                        <option value="in">India</option>
+                        <option value="us">USA</option>
+                        <option value="uk">UK</option>
+                    </select>
+                </div>
+
+                <button type="submit">Submit Form</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="multimedia">
+            <h2>4. Multimedia</h2>
+            <video controls width="250">
+                <source src="movie.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vivek's Web Dev Notes</p>
+    </footer>
+
+    <!-- 
+    --------------------HTML SUMMARY TABLE-----------------------
+    | Element      | Type      | Description                               |
+    | ------------ | --------- | ----------------------------------------- |
+    | <header>     | Block     | Introduction/navigation container         |
+    | <main>       | Block     | Main content of the document              |
+    | <section>    | Block     | Thematic grouping of content              |
+    | <article>    | Block     | Independent content piece                 |
+    | <aside>      | Block     | Sidebar or related info                   |
+    | <footer>     | Block     | Footer for its nearest section            |
+    | <input>      | Inline    | Interactive control for web-based forms   |
+    | <meta>       | Metadata  | Information about HTML document           |
+    -->
+
+</body>
+</html>

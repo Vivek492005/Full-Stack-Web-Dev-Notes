@@ -1,0 +1,147 @@
+/*
+========================================================================================================================================================================
+                                                                    CSS COMPLETE NOTES - STYLING, BOX MODEL, AND LAYOUTS
+========================================================================================================================================================================
+
+/*
+CSS (Cascading Style Sheets) is the language used to style an HTML document. 
+It describes how HTML elements should be displayed on screen, paper, or in other media.
+
+Key Concepts:
+- Selectors: Patterns used to select the elements you want to style (e.g., .class, #id, tag).
+- Properties & Values: The appearance aspects you want to change (e.g., color: red;).
+- Cascading: The order of priority when multiple styles apply to the same element.
+- Specificity: How browsers decide which property values are most relevant.
+*/
+
+/* --------------------CSS BASICS----------------------- */
+
+/* Universal Selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Includes padding/border in total width/height */
+}
+
+/* Tag Selector */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Class Selector */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* ID Selector */
+#main-header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* --------------------BOX MODEL----------------------- */
+/*
+Every element is considered a rectangular box.
+Box Model components: Content -> Padding -> Border -> Margin
+*/
+.box {
+    width: 300px;
+    padding: 20px;   /* Inside space */
+    border: 5px solid #333;
+    margin: 10px;    /* Outside space */
+}
+
+/* --------------------LAYOUTS (FLEXBOX)----------------------- */
+/* 
+Flexbox is a one-dimensional layout method for arranging items in rows or columns.
+*/
+.flex-container {
+    display: flex;
+    justify-content: space-around; /* Horizontal alignment */
+    align-items: center;           /* Vertical alignment */
+    flex-wrap: wrap;               /* Wrap to next line if no space */
+}
+
+.flex-item {
+    flex: 1; /* Grow evenly */
+    background: coral;
+    margin: 5px;
+    height: 100px;
+}
+
+/* --------------------LAYOUTS (GRID)----------------------- */
+/*
+CSS Grid Layout is a two-dimensional layout system.
+*/
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 10px;
+}
+
+/* --------------------POSITIONING----------------------- */
+/*
+- Static: Default.
+- Relative: Positioned relative to its normal position.
+- Absolute: Positioned relative to the nearest positioned ancestor.
+- Fixed: Positioned relative to the viewport (stays during scroll).
+- Sticky: Toggles between relative and fixed based on scroll.
+*/
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+}
+
+/* --------------------ANIMATIONS & TRANSITIONS----------------------- */
+.btn {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    transition: background-color 0.3s ease-in; /* Smooth change */
+}
+
+.btn:hover {
+    background-color: darkblue;
+    cursor: pointer;
+}
+
+/* Keyframe Animation */
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.animated-box {
+    animation: slideIn 1s forwards;
+}
+
+/* --------------------RESPONSIVE DESIGN (MEDIA QUERIES)----------------------- */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+    }
+}
+
+/* --------------------CSS SUMMARY TABLE-----------------------
+| Property         | Value Example         | Description                               |
+| ---------------- | --------------------- | ----------------------------------------- |
+| `display`        | `flex`, `grid`, `block`| Defines how elements are laid out         |
+| `position`       | `absolute`, `fixed`    | Controls element placement                |
+| `box-sizing`     | `border-box`           | Defines how width/height are calculated   |
+| `margin`         | `10px auto`            | Space outside the element                 |
+| `padding`        | `1rem`                 | Space inside the element                  |
+| `z-index`        | `999`                  | Stack order of elements                   |
+| `flex-direction` | `column`, `row`        | Direction of flex items                   |
+------------------------------------------------------------------------------------------ */

@@ -20,10 +20,12 @@ Welcome to my comprehensive collection of notes for Full Stack Web Development. 
 
 ## 📈 Roadmap
 - [x] JavaScript Core Notes
-- [ ] HTML & CSS Fundamentals
+- [x] HTML Fundamentals
+- [x] CSS Styling & Layouts
 - [ ] React & Next.js Advanced Patterns
 - [ ] Node.js & Express API Development
 - [ ] Database Integration (MongoDB/PostgreSQL)
+
 
 ## 🤝 Contribution
 Feel free to fork this repository and add your own notes or improve the existing ones!
