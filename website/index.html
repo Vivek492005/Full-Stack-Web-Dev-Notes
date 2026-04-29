@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevNotes | Interactive Full-Stack Notes</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Code Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="bg-glow">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside>
+            <div class="logo">DevNotes.</div>
+            <nav>
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" data-category="all">
+                            <i data-lucide="layout-grid"></i>
+                            <span class="nav-text">All Notes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-category="javascript">
+                            <i data-lucide="code-2"></i>
+                            <span class="nav-text">JavaScript</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-category="html">
+                            <i data-lucide="file-code"></i>
+                            <span class="nav-text">HTML5</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-category="css">
+                            <i data-lucide="palette"></i>
+                            <span class="nav-text">CSS3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-category="react">
+                            <i data-lucide="atom"></i>
+                            <span class="nav-text">React JS</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-category="nextjs">
+                            <i data-lucide="zap"></i>
+                            <span class="nav-text">Next.js</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-category="nodejs">
+                            <i data-lucide="server"></i>
+                            <span class="nav-text">Node.js</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-category="database">
+                            <i data-lucide="database"></i>
+                            <span class="nav-text">Database</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main>
+            <header>
+                <div class="search-container">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search across all notes..." id="searchBox">
+                </div>
+                <div class="header-actions">
+                    <button class="nav-link" id="themeToggle">
+                        <i data-lucide="moon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div id="contentArea">
+                <!-- Dynamic Content Injected Here -->
+                <div class="note-section">
+                    <h1 class="section-title" id="mainTitle">Full-Stack Excellence</h1>
+                    <p class="section-desc">Master the craft of modern web development through organized, high-quality notes.</p>
+                    
+                    <div class="grid-layout" id="notesGrid">
+                        <!-- Note Cards -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-tsx.min.js"></script>
+    
+    <script src="scripts/data.js"></script>
+    <script src="scripts/app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
