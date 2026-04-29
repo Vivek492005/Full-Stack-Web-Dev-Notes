@@ -6,44 +6,54 @@ const outputFile = path.join(__dirname, 'website', 'scripts', 'data.js');
 
 const content = fs.readFileSync(notesFile, 'utf-8');
 
-// Even more flexible separator: any length of underscores inside a /* ... */ comment
-const SEPARATOR_REGEX = /\/\*_{10,}.*?\*\//g;
+// 1. Separate JavaScript from the rest
+const separatorLine = "// ====================================================================================================";
+const mainParts = content.split(separatorLine);
+const jsPart = mainParts[0];
+const otherPart = mainParts.length > 1 ? mainParts[1] : "";
 
 let notesData = [];
 let idCounter = 1;
 
-// Split by the regex
-const rawSections = content.split(SEPARATOR_REGEX);
+// 2. Parse JavaScript modules using a very flexible regex for separators
+// Matches //----, //____, /* ---- */, etc.
+const jsModules = jsPart.split(/(?:\/\/|(?:\/\*))[\s\-_]{10,}.*?(?:\*\/)?/);
 
-rawSections.forEach((section) => {
-    const trimmed = section.trim();
-    if (!trimmed || trimmed.length < 50) return; // Skip small artifacts
+jsModules.forEach(mod => {
+    const trimmed = mod.trim();
+    if (!trimmed || trimmed.length < 100) return;
 
+    // Find title: look for // at start of line
     const lines = trimmed.split('\n');
-    
-    // Find first comment for title
-    let title = "JavaScript Module";
+    let title = "";
     for (let line of lines) {
         if (line.trim().startsWith('//')) {
             title = line.replace('//', '').trim();
             break;
+        } else if (line.trim().startsWith('/*')) {
+            // Check next line or inside comment
+            const clean = line.replace('/*', '').replace('*/', '').trim();
+            if (clean && clean.length < 50) {
+                title = clean;
+                break;
+            }
         }
     }
 
-    if (title.includes('ALL WEB DEV NOTES')) return;
+    if (!title) title = "JavaScript Concept " + idCounter;
 
     notesData.push({
         id: "js-" + idCounter++,
         category: "javascript",
         title: title,
-        description: "Full module notes and examples for " + title,
+        description: "Comprehensive notes on " + title,
         content: trimmed,
         language: "javascript"
     });
 });
 
-// Handle special Tech Markers
-const otherTechs = [
+// 3. Parse Other Technologies
+const techs = [
     { name: "HTML", category: "html", lang: "markup" },
     { name: "CSS", category: "css", lang: "css" },
     { name: "REACT", category: "react", lang: "jsx" },
@@ -52,25 +62,23 @@ const otherTechs = [
     { name: "DATABASE", category: "database", lang: "javascript" }
 ];
 
-otherTechs.forEach(tech => {
-    const startMarker = "==================== " + tech.name + " ====================";
-    if (content.includes(startMarker)) {
-        const parts = content.split(startMarker);
-        if (parts.length > 1) {
-            // Find the end of this tech's block (the next technology or end of file)
-            let rawContent = parts[1].split("====================")[0].trim();
-            // Clean up trailing */
-            rawContent = rawContent.replace(/\*\/$/, '').trim();
-            
-            notesData.push({
-                id: tech.category + "-" + idCounter++,
-                category: tech.category,
-                title: tech.name + " Mastery",
-                description: "Comprehensive " + tech.name + " guide from basics to advanced.",
-                content: rawContent,
-                language: tech.lang
-            });
-        }
+techs.forEach(tech => {
+    const marker = "==================== " + tech.name + " ====================";
+    if (otherPart.includes(marker)) {
+        let techContent = otherPart.split(marker)[1].split("====================")[0].trim();
+        
+        // Clean up formatting artifacts
+        techContent = techContent.replace(/^\/\*/, '').replace(/\*\/$/, '').trim();
+        techContent = techContent.replace(/^<!--/, '').replace(/-->$/, '').trim();
+
+        notesData.push({
+            id: tech.category + "-" + idCounter++,
+            category: tech.category,
+            title: tech.name + " Mastery",
+            description: "Full professional guide for " + tech.name,
+            content: techContent,
+            language: tech.lang
+        });
     }
 });
 
