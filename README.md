@@ -22,9 +22,11 @@ Welcome to my comprehensive collection of notes for Full Stack Web Development. 
 - [x] JavaScript Core Notes
 - [x] HTML Fundamentals
 - [x] CSS Styling & Layouts
-- [ ] React & Next.js Advanced Patterns
+- [x] React JS Components & Hooks
+- [ ] Next.js Advanced Patterns
 - [ ] Node.js & Express API Development
 - [ ] Database Integration (MongoDB/PostgreSQL)
+
 
 
 ## 🤝 Contribution
