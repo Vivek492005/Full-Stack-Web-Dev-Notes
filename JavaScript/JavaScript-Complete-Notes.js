@@ -2081,3 +2081,758 @@ for (let key in person) {
 | Spread (...)     | Cloning or merging objects                       |
 */
 
+
+
+// ====================================================================================================
+//                                         ALL WEB DEV NOTES (HTML, CSS, REACT, ETC.)
+// ====================================================================================================
+
+
+/*
+==================== HTML ====================
+<!--
+========================================================================================================================================================================
+                                                                    HTML5 COMPLETE NOTES - SEMANTIC, STRUCTURE, AND FORMS
+========================================================================================================================================================================
+    
+/*
+HTML (HyperText Markup Language) is the standard markup language for creating web pages.
+It describes the structure of a web page semantically and originally included cues for the appearance of the document.
+
+Key Concepts:
+- Elements & Tags: <tagname>Content</tagname>
+- Attributes: Provide additional information about elements (e.g., class, id, src, href).
+- Nesting: Elements can be placed inside other elements.
+- Semantic HTML: Using tags that clearly describe their meaning in a human- and machine-readable way.
+*/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+    --------------------METADATA & HEAD-----------------------
+    The <head> contains machine-readable information (metadata) about the document.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive HTML5 notes for Full Stack Web Development">
+    <title>HTML5 Complete Notes</title>
+
+    <!-- External CSS/JS Links -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 
+    --------------------SEMANTIC STRUCTURE-----------------------
+    Semantic HTML improves SEO, accessibility, and code readability.
+    -->
+    <header>
+        <h1>My Web Dev Notes</h1>
+        <nav>
+            <ul>
+                <li><a href="#basics">Basics</a></li>
+                <li><a href="#semantic">Semantic</a></li>
+                <li><a href="#forms">Forms</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="basics">
+            <h2>1. HTML Basics</h2>
+            <p>HTML uses <strong>tags</strong> to define elements.</p>
+            
+            <!-- Links & Images -->
+            <a href="https://google.com" target="_blank">Visit Google</a>
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            
+            <!-- Lists -->
+            <h3>Lists</h3>
+            <ul>
+                <li>Unordered Item 1</li>
+                <li>Unordered Item 2</li>
+            </ul>
+            <ol>
+                <li>Ordered Item 1</li>
+                <li>Ordered Item 2</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="semantic">
+            <h2>2. Semantic Elements</h2>
+            <article>
+                <h3>Article Title</h3>
+                <p>This is an independent, self-contained piece of content.</p>
+            </article>
+            
+            <aside>
+                <p>This content is indirectly related to the main content (Sidebar).</p>
+            </aside>
+        </section>
+
+        <hr>
+
+        <section id="forms">
+            <h2>3. Forms and Inputs</h2>
+            <!-- 
+            Forms are used to collect user input.
+            Attributes: action (where to send data), method (GET/POST)
+            -->
+            <form action="/submit" method="POST">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter name" required>
+                </div>
+
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+
+                <div>
+                    <p>Role:</p>
+                    <input type="radio" id="admin" name="role" value="admin">
+                    <label for="admin">Admin</label>
+                    <input type="radio" id="user" name="role" value="user">
+                    <label for="user">User</label>
+                </div>
+
+                <div>
+                    <label for="country">Country:</label>
+                    <select name="country" id="country">
+                        <option value="in">India</option>
+                        <option value="us">USA</option>
+                        <option value="uk">UK</option>
+                    </select>
+                </div>
+
+                <button type="submit">Submit Form</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="multimedia">
+            <h2>4. Multimedia</h2>
+            <video controls width="250">
+                <source src="movie.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vivek's Web Dev Notes</p>
+    </footer>
+
+    <!-- 
+    --------------------HTML SUMMARY TABLE-----------------------
+    | Element      | Type      | Description                               |
+    | ------------ | --------- | ----------------------------------------- |
+    | <header>     | Block     | Introduction/navigation container         |
+    | <main>       | Block     | Main content of the document              |
+    | <section>    | Block     | Thematic grouping of content              |
+    | <article>    | Block     | Independent content piece                 |
+    | <aside>      | Block     | Sidebar or related info                   |
+    | <footer>     | Block     | Footer for its nearest section            |
+    | <input>      | Inline    | Interactive control for web-based forms   |
+    | <meta>       | Metadata  | Information about HTML document           |
+    -->
+
+</body>
+</html>
+
+*/
+
+
+/*
+==================== CSS ====================
+/*
+========================================================================================================================================================================
+                                                                    CSS COMPLETE NOTES - STYLING, BOX MODEL, AND LAYOUTS
+========================================================================================================================================================================
+
+/*
+CSS (Cascading Style Sheets) is the language used to style an HTML document. 
+It describes how HTML elements should be displayed on screen, paper, or in other media.
+
+Key Concepts:
+- Selectors: Patterns used to select the elements you want to style (e.g., .class, #id, tag).
+- Properties & Values: The appearance aspects you want to change (e.g., color: red;).
+- Cascading: The order of priority when multiple styles apply to the same element.
+- Specificity: How browsers decide which property values are most relevant.
+*/
+
+/* --------------------CSS BASICS----------------------- */
+
+/* Universal Selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Includes padding/border in total width/height */
+}
+
+/* Tag Selector */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Class Selector */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* ID Selector */
+#main-header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* --------------------BOX MODEL----------------------- */
+/*
+Every element is considered a rectangular box.
+Box Model components: Content -> Padding -> Border -> Margin
+*/
+.box {
+    width: 300px;
+    padding: 20px;   /* Inside space */
+    border: 5px solid #333;
+    margin: 10px;    /* Outside space */
+}
+
+/* --------------------LAYOUTS (FLEXBOX)----------------------- */
+/* 
+Flexbox is a one-dimensional layout method for arranging items in rows or columns.
+*/
+.flex-container {
+    display: flex;
+    justify-content: space-around; /* Horizontal alignment */
+    align-items: center;           /* Vertical alignment */
+    flex-wrap: wrap;               /* Wrap to next line if no space */
+}
+
+.flex-item {
+    flex: 1; /* Grow evenly */
+    background: coral;
+    margin: 5px;
+    height: 100px;
+}
+
+/* --------------------LAYOUTS (GRID)----------------------- */
+/*
+CSS Grid Layout is a two-dimensional layout system.
+*/
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 10px;
+}
+
+/* --------------------POSITIONING----------------------- */
+/*
+- Static: Default.
+- Relative: Positioned relative to its normal position.
+- Absolute: Positioned relative to the nearest positioned ancestor.
+- Fixed: Positioned relative to the viewport (stays during scroll).
+- Sticky: Toggles between relative and fixed based on scroll.
+*/
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+}
+
+/* --------------------ANIMATIONS & TRANSITIONS----------------------- */
+.btn {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    transition: background-color 0.3s ease-in; /* Smooth change */
+}
+
+.btn:hover {
+    background-color: darkblue;
+    cursor: pointer;
+}
+
+/* Keyframe Animation */
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.animated-box {
+    animation: slideIn 1s forwards;
+}
+
+/* --------------------RESPONSIVE DESIGN (MEDIA QUERIES)----------------------- */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+    }
+}
+
+/* --------------------CSS SUMMARY TABLE-----------------------
+| Property         | Value Example         | Description                               |
+| ---------------- | --------------------- | ----------------------------------------- |
+| `display`        | `flex`, `grid`, `block`| Defines how elements are laid out         |
+| `position`       | `absolute`, `fixed`    | Controls element placement                |
+| `box-sizing`     | `border-box`           | Defines how width/height are calculated   |
+| `margin`         | `10px auto`            | Space outside the element                 |
+| `padding`        | `1rem`                 | Space inside the element                  |
+| `z-index`        | `999`                  | Stack order of elements                   |
+| `flex-direction` | `column`, `row`        | Direction of flex items                   |
+------------------------------------------------------------------------------------------ */
+
+*/
+
+
+/*
+==================== REACT ====================
+/*
+========================================================================================================================================================================
+                                                                    REACT JS COMPLETE NOTES - COMPONENTS, HOOKS, AND STATE
+========================================================================================================================================================================
+
+/*
+React is a JavaScript library for building user interfaces. It is component-based, 
+meaning you build small, reusable pieces of UI and combine them into a full application.
+
+Key Concepts:
+- JSX (JavaScript XML): Allows you to write HTML-like code inside JavaScript.
+- Components: The building blocks of React (Functional or Class-based).
+- Props (Properties): Read-only data passed from parent to child.
+- State: Data managed within a component that can change over time.
+- Virtual DOM: A lightweight copy of the real DOM used for performance optimization.
+*/
+
+import React, { useState, useEffect, createContext, useContext } from 'react';
+
+// --------------------FUNCTIONAL COMPONENTS & JSX-----------------------
+/* 
+Components must start with a capital letter.
+JSX must return a single root element (or a Fragment <></>).
+*/
+const Header = () => {
+    return (
+        <header>
+            <h1>Welcome to React</h1>
+        </header>
+    );
+};
+
+// --------------------PROPS (PROPERTIES)-----------------------
+/*
+Props are used to pass data from one component to another.
+*/
+const Greeting = (props) => {
+    return <h2>Hello, {props.name}!</h2>;
+};
+
+// --------------------STATE (USESTATE HOOK)-----------------------
+/*
+State allows components to track and update data. When state changes, React re-renders.
+*/
+const Counter = () => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+    );
+};
+
+// --------------------SIDE EFFECTS (USEEFFECT HOOK)-----------------------
+/*
+useEffect handles side effects like API calls, timers, or subscriptions.
+Dependencies array []:
+- empty: runs only once on mount.
+- [var]: runs whenever 'var' changes.
+- none: runs on every render.
+*/
+const DataFetcher = () => {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        // Simulating API call
+        fetch('https://jsonplaceholder.typicode.com/posts/1')
+            .then(response => response.json())
+            .then(json => setData(json));
+            
+        // Optional Cleanup Function
+        return () => console.log('Component Unmounted');
+    }, []);
+
+    return <div>Data: {data.title}</div>;
+};
+
+// --------------------LISTS & KEYS-----------------------
+const FruitList = () => {
+    const fruits = ['Apple', 'Banana', 'Mango'];
+    return (
+        <ul>
+            {fruits.map((fruit, index) => (
+                <li key={index}>{fruit}</li> /* Always provide a unique 'key' */
+            ))}
+        </ul>
+    );
+};
+
+// --------------------CONTEXT API-----------------------
+/*
+Used for "Prop Drilling" solutions (passing data deep without props).
+*/
+const ThemeContext = createContext('light');
+
+const ThemeApp = () => {
+    return (
+        <ThemeContext.Provider value="dark">
+            <ThemedButton />
+        </ThemeContext.Provider>
+    );
+};
+
+const ThemedButton = () => {
+    const theme = useContext(ThemeContext);
+    return <button className={theme}>I am {theme} themed!</button>;
+};
+
+// --------------------OTHER COMMON HOOKS-----------------------
+/*
+- useRef: Access DOM elements directly or persist values without re-rendering.
+- useMemo: Memoize expensive calculations.
+- useCallback: Memoize functions to prevent unnecessary re-renders.
+*/
+
+// --------------------REACT SUMMARY TABLE-----------------------
+/*
+| Feature          | Description                                      |
+| ---------------- | ------------------------------------------------ |
+| JSX              | JavaScript XML for describing UI                 |
+| Props            | Immutable data passed to components              |
+| State            | Mutable data managed inside components           |
+| useState         | Hook for managing state                          |
+| useEffect        | Hook for side effects and lifecycle              |
+| useContext       | Hook for accessing Context                       |
+| Virtual DOM      | Performance optimization layer                   |
+---------------------------------------------------------------------- */
+
+*/
+
+
+/*
+==================== NEXTJS ====================
+/*
+========================================================================================================================================================================
+                                                                    NEXT.JS COMPLETE NOTES - APP ROUTER, SSR, AND OPTIMIZATION
+========================================================================================================================================================================
+
+/*
+Next.js is a React framework that gives you building blocks to create fast web applications.
+It handles tooling and configuration and provides additional features like Routing, Data Fetching, and Rendering.
+
+Key Concepts:
+- App Router: New file-system based router in the `app` directory.
+- Server Components: Components that render on the server (default in App Router).
+- Client Components: Components that render on the client (require 'use client' directive).
+- Data Fetching: SSR (Server-Side Rendering), SSG (Static Site Generation), and ISR (Incremental Static Regeneration).
+*/
+
+// --------------------SERVER VS CLIENT COMPONENTS-----------------------
+/*
+Server Components (Default):
+- Fetch data on the server.
+- Keep sensitive info (API keys) on server.
+- Reduce client-side bundle size.
+
+Client Components:
+- Use Hooks (useState, useEffect).
+- Use Browser APIs (window, localStorage).
+- Handle interactivity (onClick).
+*/
+
+'use client'; // Required for Client Components
+
+import { useState } from 'react';
+
+export default function ClientCounter() {
+    const [count, setCount] = useState(0);
+    return <button onClick={() => setCount(count + 1)}>{count}</button>;
+}
+
+// --------------------FILE-BASED ROUTING-----------------------
+/*
+app/page.tsx       -> /
+app/about/page.tsx  -> /about
+app/blog/[id]/page.tsx -> /blog/123 (Dynamic Route)
+app/layout.tsx     -> Shared UI for all pages
+*/
+
+// --------------------DATA FETCHING (SERVER SIDE)-----------------------
+/*
+Next.js extends the native fetch API to allow per-request caching and revalidation.
+*/
+async function getData() {
+    const res = await fetch('https://api.example.com/data', {
+        next: { revalidate: 3600 } // ISR: Revalidate every hour
+    });
+    return res.json();
+}
+
+export async function Page() {
+    const data = await getData();
+    return <main>{/* Render data */}</main>;
+}
+
+// --------------------IMAGE OPTIMIZATION-----------------------
+import Image from 'next/image';
+
+const MyImage = () => (
+    <Image
+        src="/profile.png"
+        width={500}
+        height={500}
+        alt="Profile"
+        placeholder="blur" // Optimization
+    />
+);
+
+// --------------------API ROUTES (ROUTE HANDLERS)-----------------------
+/*
+Created in app/api/route.ts
+*/
+export async function GET(request: Request) {
+    return new Response(JSON.stringify({ message: "Hello from API" }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+    });
+}
+
+// --------------------NEXT.JS SUMMARY TABLE-----------------------
+/*
+| Feature          | Description                                      |
+| ---------------- | ------------------------------------------------ |
+| App Router       | File-system based routing with layouts/loading   |
+| SSR              | Server-Side Rendering for dynamic data           |
+| SSG              | Static Site Generation for speed                 |
+| ISR              | Incremental Static Regeneration                  |
+| Server Comp      | Components that render on server by default      |
+| Client Comp      | Components that use interactivity ('use client') |
+| next/image       | Automatic Image optimization                     |
+---------------------------------------------------------------------- */
+
+*/
+
+
+/*
+==================== NODEJS ====================
+/*
+========================================================================================================================================================================
+                                                                    NODE.JS & EXPRESS COMPLETE NOTES - SERVER, API, AND MIDDLEWARE
+========================================================================================================================================================================
+
+/*
+Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. 
+It allows you to run JavaScript on the server. Express is a minimal and flexible 
+Node.js web application framework that provides a robust set of features for web and mobile applications.
+
+Key Concepts:
+- Modules: Small, reusable pieces of code (CommonJS `require` vs ES6 `import`).
+- npm: Node Package Manager for managing dependencies.
+- Event Loop: Handles asynchronous operations in Node.js.
+- Middleware: Functions that have access to the request/response objects.
+- REST API: Architectural style for designing networked applications.
+*/
+
+// --------------------NODE.JS BUILT-IN MODULES-----------------------
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+
+// FS Example (Async)
+// fs.writeFile('test.txt', 'Hello Node', (err) => { ... });
+
+// Path Example
+const fullPath = path.join(__dirname, 'folder', 'file.txt');
+
+// --------------------EXPRESS SERVER SETUP-----------------------
+/*
+npm install express
+*/
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+// Built-in Middleware
+app.use(express.json()); // To parse JSON bodies
+
+// --------------------ROUTING (HTTP METHODS)-----------------------
+/*
+GET: Retrieve data
+POST: Create data
+PUT: Update data
+DELETE: Remove data
+*/
+
+app.get('/', (req, res) => {
+    res.send('Welcome to the Node.js API');
+});
+
+app.post('/api/users', (req, res) => {
+    const newUser = req.body;
+    res.status(201).json({ message: "User created", data: newUser });
+});
+
+// --------------------CUSTOM MIDDLEWARE-----------------------
+/*
+Middleware runs before the route handler.
+*/
+const logger = (req, res, next) => {
+    console.log(`${req.method} ${req.url} - ${new Date()}`);
+    next(); // Pass control to next middleware
+};
+
+app.use(logger);
+
+// --------------------ERROR HANDLING-----------------------
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+// --------------------STARTING SERVER-----------------------
+// app.listen(PORT, () => {
+//     console.log(`Server running on http://localhost:${PORT}`);
+// });
+
+// --------------------NODE/EXPRESS SUMMARY TABLE-----------------------
+/*
+| Feature          | Description                                      |
+| ---------------- | ------------------------------------------------ |
+| `require()`      | Method to import modules (CommonJS)              |
+| `module.exports` | Exporting code from a file                       |
+| `express()`      | Initializes the Express application              |
+| `app.use()`      | Mounts middleware functions                      |
+| `res.json()`     | Sends a JSON response                            |
+| `req.params`     | Accesses route parameters (e.g. /user/:id)       |
+| `req.query`      | Accesses URL query parameters                    |
+---------------------------------------------------------------------- */
+
+*/
+
+
+/*
+==================== DATABASE ====================
+/*
+========================================================================================================================================================================
+                                                                    DATABASE COMPLETE NOTES - MONGODB, MONGOOSE, AND CRUD
+========================================================================================================================================================================
+
+/*
+A Database is an organized collection of structured information, or data, 
+typically stored electronically in a computer system.
+
+Key Concepts:
+- SQL vs NoSQL: Relational (Tables) vs Non-Relational (Documents).
+- MongoDB: A popular NoSQL database that stores data in JSON-like documents.
+- Mongoose: An Object Data Modeling (ODM) library for MongoDB and Node.js.
+- Schema: Defines the structure of the document.
+- Model: A wrapper on the Mongoose schema that provides an interface to the database.
+*/
+
+// --------------------SQL vs NoSQL SUMMARY-----------------------
+/*
+| Feature      | SQL (MySQL/Postgres)       | NoSQL (MongoDB)             |
+| ------------ | -------------------------- | --------------------------- |
+| Structure    | Fixed Schema (Tables)      | Dynamic Schema (Documents)  |
+| Relationships| Joins                      | Embedding/Linking           |
+| Scaling      | Vertical (Better Hardware)  | Horizontal (More Servers)   |
+| Use Case     | Complex Queries/Transactions| Big Data/Real-time Apps     |
+*/
+
+const mongoose = require('mongoose');
+
+// --------------------MONGODB CONNECTION-----------------------
+/*
+const connectDB = async () => {
+    try {
+        await mongoose.connect('mongodb://localhost:27017/myNotesDB');
+        console.log('MongoDB Connected...');
+    } catch (err) {
+        console.error(err.message);
+    }
+};
+*/
+
+// --------------------MONGOOSE SCHEMA & MODEL-----------------------
+const UserSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        unique: true
+    },
+    age: Number,
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+const User = mongoose.model('User', UserSchema);
+
+// --------------------CRUD OPERATIONS-----------------------
+/*
+Create:  new User({ ... }).save()
+Read:    User.find(), User.findById()
+Update:  User.updateOne(), User.findByIdAndUpdate()
+Delete:  User.deleteOne(), User.findByIdAndDelete()
+*/
+
+// --------------------QUERY OPERATORS-----------------------
+/*
+$gt (Greater Than)
+$lt (Less Than)
+$in (In Array)
+$or (Either condition)
+*/
+// Example: User.find({ age: { $gt: 18 } })
+
+// --------------------DATABASE SUMMARY TABLE-----------------------
+/*
+| Method           | Description                                      |
+| ---------------- | ------------------------------------------------ |
+| `mongoose.connect`| Connects to the database instance                |
+| `new Schema()`   | Defines the data structure                       |
+| `model()`        | Creates a collection interface                   |
+| `.find()`        | Retrieves documents matching a query             |
+| `.save()`        | Saves a new document to the database            |
+| `.populate()`    | Links data from other collections (Relationships)|
+---------------------------------------------------------------------- */
+
+*/
+
