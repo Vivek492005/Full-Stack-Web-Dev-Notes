@@ -1,110 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevNotes | Interactive Full-Stack Notes</title>
+    <title>Full-Stack Mastery | Vivek's Notes</title>
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            black: '#020617',
+                            dark: '#0f172a',
+                            primary: '#38bdf8',
+                            secondary: '#818cf8',
+                            accent: '#22d3ee',
+                            glow: 'rgba(56, 189, 248, 0.3)'
+                        }
+                    },
+                    animation: {
+                        'glow-pulse': 'glow-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'scan': 'scan 3s linear infinite',
+                    },
+                    keyframes: {
+                        'glow-pulse': {
+                            '0%, 100%': { opacity: 0.5, transform: 'scale(1)' },
+                            '50%': { opacity: 0.8, transform: 'scale(1.05)' },
+                        },
+                        'scan': {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Code Highlighting -->
+    <!-- Prism Syntax Highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #020617;
+            color: #f1f5f9;
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-border {
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        }
+        .neon-text {
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+        }
+        code {
+            font-family: 'JetBrains Mono', monospace !important;
+        }
+        .sidebar-item-active {
+            background: linear-gradient(to right, rgba(56, 189, 248, 0.1), transparent);
+            border-left: 3px solid #38bdf8;
+            color: #38bdf8;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+    </style>
 </head>
-<body>
-    <div class="bg-glow">
-        <div class="glow-1"></div>
-        <div class="glow-2"></div>
+<body class="antialiased overflow-hidden">
+    <!-- Hi-Tech Background Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-sky-500/10 blur-[120px] animate-glow-pulse"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/10 blur-[120px] animate-glow-pulse" style="animation-delay: 1s"></div>
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#38bdf8 1px, transparent 1px); background-size: 40px 40px;"></div>
     </div>
 
-    <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <aside>
-            <div class="logo">DevNotes.</div>
-            <nav>
-                <ul class="nav-links">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active" data-category="all">
-                            <i data-lucide="layout-grid"></i>
-                            <span class="nav-text">All Notes</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-category="javascript">
-                            <i data-lucide="code-2"></i>
-                            <span class="nav-text">JavaScript</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-category="html">
-                            <i data-lucide="file-code"></i>
-                            <span class="nav-text">HTML5</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-category="css">
-                            <i data-lucide="palette"></i>
-                            <span class="nav-text">CSS3</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-category="react">
-                            <i data-lucide="atom"></i>
-                            <span class="nav-text">React JS</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-category="nextjs">
-                            <i data-lucide="zap"></i>
-                            <span class="nav-text">Next.js</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-category="nodejs">
-                            <i data-lucide="server"></i>
-                            <span class="nav-text">Node.js</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-category="database">
-                            <i data-lucide="database"></i>
-                            <span class="nav-text">Database</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+    <div class="flex h-screen relative z-10">
+        <!-- Modern Sidebar -->
+        <aside class="w-72 glass border-r border-slate-800 flex flex-col transition-all duration-500 ease-in-out">
+            <div class="p-8">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 bg-sky-500 rounded-xl flex items-center justify-center shadow-lg shadow-sky-500/20">
+                        <i data-lucide="terminal" class="text-white w-6 h-6"></i>
+                    </div>
+                    <span class="text-2xl font-extrabold tracking-tighter text-white">FSWD<span class="text-sky-500">.</span></span>
+                </div>
+
+                <nav class="space-y-2">
+                    <button data-category="all" class="sidebar-btn sidebar-item-active w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300">
+                        <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                        <span class="font-medium">Overview</span>
+                    </button>
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-8 mb-4 px-4">Core Tech</div>
+                    <button data-category="javascript" class="sidebar-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all duration-300">
+                        <i data-lucide="code-2" class="w-5 h-5"></i>
+                        <span class="font-medium">JavaScript</span>
+                    </button>
+                    <button data-category="html" class="sidebar-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all duration-300">
+                        <i data-lucide="file-code" class="w-5 h-5"></i>
+                        <span class="font-medium">HTML5</span>
+                    </button>
+                    <button data-category="css" class="sidebar-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all duration-300">
+                        <i data-lucide="palette" class="w-5 h-5"></i>
+                        <span class="font-medium">CSS3</span>
+                    </button>
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-8 mb-4 px-4">Frameworks</div>
+                    <button data-category="react" class="sidebar-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all duration-300">
+                        <i data-lucide="atom" class="w-5 h-5"></i>
+                        <span class="font-medium">React JS</span>
+                    </button>
+                    <button data-category="nextjs" class="sidebar-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all duration-300">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                        <span class="font-medium">Next.js</span>
+                    </button>
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-8 mb-4 px-4">Backend</div>
+                    <button data-category="nodejs" class="sidebar-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all duration-300">
+                        <i data-lucide="server" class="w-5 h-5"></i>
+                        <span class="font-medium">Node.js</span>
+                    </button>
+                    <button data-category="database" class="sidebar-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all duration-300">
+                        <i data-lucide="database" class="w-5 h-5"></i>
+                        <span class="font-medium">MongoDB</span>
+                    </button>
+                </nav>
+            </div>
+            
+            <div class="mt-auto p-8">
+                <div class="p-4 rounded-2xl bg-sky-500/5 border border-sky-500/20">
+                    <p class="text-xs text-slate-400 mb-2">Learning Progress</p>
+                    <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-sky-500 h-full w-[85%]" style="box-shadow: 0 0 10px #38bdf8"></div>
+                    </div>
+                    <p class="text-[10px] text-sky-500 mt-2 font-bold uppercase tracking-tighter">85% Mastery</p>
+                </div>
+            </div>
         </aside>
 
-        <!-- Main Content Area -->
-        <main>
-            <header>
-                <div class="search-container">
-                    <i data-lucide="search" class="search-icon"></i>
-                    <input type="text" class="search-input" placeholder="Search across all notes..." id="searchBox">
+        <!-- Main Workspace -->
+        <main class="flex-1 flex flex-col overflow-hidden bg-slate-950/20">
+            <!-- Glass Header -->
+            <header class="h-20 glass flex items-center justify-between px-12 border-b border-slate-800/50 sticky top-0 z-50">
+                <div class="relative group">
+                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 group-focus-within:text-sky-500 transition-colors"></i>
+                    <input type="text" id="searchBox" placeholder="Explore concepts..." class="bg-slate-900/50 border border-slate-800 rounded-full pl-12 pr-6 py-2.5 w-[400px] text-sm focus:outline-none focus:border-sky-500/50 focus:ring-4 focus:ring-sky-500/10 transition-all">
                 </div>
-                <div class="header-actions">
-                    <button class="nav-link" id="themeToggle">
-                        <i data-lucide="moon"></i>
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-2 text-xs font-medium text-slate-400">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        LIVE REPO ACCESS
+                    </div>
+                    <button class="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center hover:bg-slate-800 transition-all">
+                        <i data-lucide="github" class="w-5 h-5 text-slate-300"></i>
                     </button>
                 </div>
             </header>
 
-            <div id="contentArea">
-                <!-- Dynamic Content Injected Here -->
-                <div class="note-section">
-                    <h1 class="section-title" id="mainTitle">Full-Stack Excellence</h1>
-                    <p class="section-desc">Master the craft of modern web development through organized, high-quality notes.</p>
-                    
-                    <div class="grid-layout" id="notesGrid">
-                        <!-- Note Cards -->
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto p-12 custom-scrollbar">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Hero Section -->
+                    <div class="mb-16 relative">
+                        <div class="absolute -top-24 -left-24 w-96 h-96 bg-sky-500/20 blur-[100px] rounded-full"></div>
+                        <h1 id="mainTitle" class="text-6xl font-black tracking-tight mb-4 text-white leading-tight">
+                            Full-Stack <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500">Knowledge Hub</span>
+                        </h1>
+                        <p class="text-xl text-slate-400 max-w-2xl leading-relaxed">
+                            A curated collection of deep-dive technical notes, code patterns, and architectural insights for modern web development.
+                        </p>
+                    </div>
+
+                    <!-- Dynamic Grid -->
+                    <div id="notesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Cards will be injected here -->
                     </div>
                 </div>
             </div>
