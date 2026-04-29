@@ -24,8 +24,9 @@ Welcome to my comprehensive collection of notes for Full Stack Web Development. 
 - [x] CSS Styling & Layouts
 - [x] React JS Components & Hooks
 - [x] Next.js App Router & SSR
-- [ ] Node.js & Express API Development
+- [x] Node.js & Express API Development
 - [ ] Database Integration (MongoDB/PostgreSQL)
+
 
 
 
