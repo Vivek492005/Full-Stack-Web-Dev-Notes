@@ -25,7 +25,8 @@ Welcome to my comprehensive collection of notes for Full Stack Web Development. 
 - [x] React JS Components & Hooks
 - [x] Next.js App Router & SSR
 - [x] Node.js & Express API Development
-- [ ] Database Integration (MongoDB/PostgreSQL)
+- [x] Database Integration (MongoDB/Mongoose)
+
 
 
 
